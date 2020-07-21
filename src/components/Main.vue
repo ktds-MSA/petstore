@@ -10,7 +10,7 @@
           </figure>
         </div>
         <div class="col-md-6 col-md-offset-0 description">
-          <router-link tag="h1" :to="{name: 'id', params: {id: product.id}}">{{product.title}}</router-link>
+          <router-link tag="h1" :to="{name: 'Id', params: {id: product.id}}">{{product.title}}</router-link>
           <p v-html="product.description"></p>
           <p class="price">
             {{product.price | formatPrice}}
@@ -64,9 +64,9 @@ export default {
       this.cart.push(aProduct.id);
     },
     canAddToCart(aProduct) {
-      return {
+      return (
         aProduct.availableInventory > this.cartCount(aProduct.id)
-      };
+      );
     },
     cartCount(id) {
       let count=0;
@@ -96,7 +96,7 @@ export default {
       }
     }
   },
-  fiters: {
+  filters: {
     formatPrice(price) {
       if (!parseInt(price)){
         return '';
@@ -117,7 +117,7 @@ export default {
     }
   },
   created: function() {
-    axios.get('./static/product.json').then(response =>{
+    axios.get('/static/products.json').then(response =>{
       this.products = response.data.products;
       console.log(this.products);
     });

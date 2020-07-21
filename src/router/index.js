@@ -20,6 +20,7 @@ export default new Router({
       component: Form,
       props: true,
     },
+    
     {
       path:'*',
       redirect: '/'

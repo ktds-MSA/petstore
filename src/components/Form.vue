@@ -81,6 +81,7 @@
                 선물: {{order.gift}}
               </pre>
             </div>
+          </div>
         </div>
       </div>
     </div>
